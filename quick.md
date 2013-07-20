@@ -14,9 +14,9 @@ Untuk memasang *framework* Laravel, masukkan perintah berikut ke dalam *terminal
 
 	composer create-project laravel/laravel your-project-name --prefer-dist
 
-Atau, anda dapat juga mengunduh salinan [repository dari Github](https://github.com/laravel/laravel/archive/master.zip). Selanjutnya, setelah [pemasangan Composer](http://getcomposer.org), jalankan perintah `composer install` pada root direktori proyek anda. Perintah ini akan mengunduh dan memasang seluruh ketergantungan (*dependencies*) *framework*.
+Atau, anda dapat juga mengunduh salinan [*repository* dari Github](https://github.com/laravel/laravel/archive/master.zip). Selanjutnya, setelah [pemasangan Composer](http://getcomposer.org), jalankan perintah `composer install` pada direktori *root* proyek anda. Perintah ini akan mengunduh dan memasang semua ketergantungan ( *dependencies* ) *framework*.
 
-Setelah memasang *framework*, silakan buka dan lihat-lihat proyek untuk membiasakan diri dengan struktur direktorinya. Direktori `app` mengandung map seperti `views`, `controllers`, dan `models`. Sebagian besar kode aplikasi anda akan berada pada direktori ini. Mungkin anda ingin menjelajahi direktori `app/config` dan di sinilah tempat pilihan pengaturan tersedia tersedia untuk anda.
+Setelah memasang *framework*, silakan buka dan lihat-lihat proyek untuk membiasakan diri dengan struktur direktorinya. Direktori `app` mengandung map seperti `views`, `controllers`, dan `models`. Sebagian besar kode aplikasi anda akan berada pada direktori ini. Mungkin anda ingin menjelajahi direktori `app/config` dan di sinilah tempat pilihan pengaturan tersedia untuk anda.
 
 <a name="routing"></a>
 ## Routing
