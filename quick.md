@@ -1,7 +1,7 @@
 # Memulai Kilat Laravel
 
 - [Pemasangan](#installation)
-- [Routing](#routing)
+- [*Routing*](#routing)
 - [Creating A View](#creating-a-view)
 - [Creating A Migration](#creating-a-migration)
 - [Eloquent ORM](#eloquent-orm)
@@ -12,29 +12,29 @@
 
 Untuk memasang *framework* Laravel, masukkan perintah berikut ke dalam *terminal*:
 
-	composer create-project laravel/laravel your-project-name --prefer-dist
+	composer create-project laravel/laravel nama-proyek-anda --prefer-dist
 
 Atau, anda dapat juga mengunduh salinan [*repository* dari Github](https://github.com/laravel/laravel/archive/master.zip). Selanjutnya, setelah [pemasangan Composer](http://getcomposer.org), jalankan perintah `composer install` pada direktori *root* proyek anda. Perintah ini akan mengunduh dan memasang semua ketergantungan ( *dependencies* ) *framework*.
 
-Setelah memasang *framework*, silakan buka dan lihat-lihat proyek untuk membiasakan diri dengan struktur direktorinya. Direktori `app` mengandung map seperti `views`, `controllers`, dan `models`. Sebagian besar kode aplikasi anda akan berada pada direktori ini. Mungkin anda ingin menjelajahi direktori `app/config` dan di sinilah tempat pilihan pengaturan tersedia untuk anda.
+Setelah memasang *framework*, silakan buka dan lihat-lihat proyek untuk membiasakan diri dengan struktur direktorinya. Direktori `app` mengandung direktori seperti `views`, `controllers`, dan `models`. Sebagian besar kode aplikasi anda akan berada pada direktori ini. Mungkin anda ingin menjelajahi direktori `app/config` dan di sinilah tempat pilihan pengaturan tersedia untuk anda.
 
 <a name="routing"></a>
-## Routing
+## *Routing*
 
-To get started, let's create our first route. In Laravel, the simplest route is a route to a Closure. Pop open the `app/routes.php` file and add the following route to the bottom of the file:
+Untuk memulai, mari ciptakan *route* perdana kita. Pada Laravel, *route* paling sederhana adalah *route* ke *Closure*. Buka berkas `app/routes.php` dan tambahkan *route* berikut pada akhir berkas:
 
 	Route::get('users', function()
 	{
-		return 'Users!';
+		return 'Pengguna!';
 	});
 
-Now, if you hit the `/users` route in your web browser, you should see `Users!` displayed as the response. Great! You've just created your first route.
+Sekarang, bila anda tuju *route* `/users` pada peramban web, anda akan melihat `Pengguna!` ditampilkan sebagai balasan. Hebat! Anda telah menciptakan *route* perdana anda.
 
-Routes can also be attached to controller classes. For example:
+*Route* juga dapat disematkan pada kelas *controller*. Sebagai contoh:
 
 	Route::get('users', 'UserController@getIndex');
 
-This route informs the framework that requests to the `/users` route should call the `getIndex` method on the `UserController` class. For more information on controller routing, check out the [controller documentation](/docs/controllers).
+*Route* ini memberitahu *framework* bahwa permintaan ke *route* `/users` akan menjalankan metode `getIndex` dari kelas `UserController`. Untuk informasi lanjutan mengenai *controller routing*, baca [dokumentasi *controller*](/docs/controllers).
 
 <a name="creating-a-view"></a>
 ## Creating A View
