@@ -37,36 +37,36 @@ Sekarang, bila anda tuju *route* `/users` pada peramban web, anda akan melihat `
 *Route* ini memberitahu *framework* bahwa permintaan ke *route* `/users` akan menjalankan metode `getIndex` dari kelas `UserController`. Untuk informasi lanjutan mengenai *controller routing*, baca [dokumentasi *controller*](/docs/controllers).
 
 <a name="creating-a-view"></a>
-## Creating A View
+## Membuat *View*
 
-Next, we'll create a simple view to display our user data. Views live in the `app/views` directory and contain the HTML of your application. We're going to place two new views in this directory: `layout.blade.php` and `users.blade.php`. First, let's create our `layout.blade.php` file:
+Selanjutnya, kita akan membuat *view* sederhana untuk menampilkan data pengguna. *View* terletak di direktori `app/views` dan berisi HTML dari aplikasi anda. Kita akan meletakkan dua *view* baru pada direktori ini: `layout.blade.php` dan `users.blade.php`. Pertama, mari buat berkas `layout.blade.php`:
 
 	<html>
 		<body>
-			<h1>Laravel Quickstart</h1>
+			<h1>Memulai Kilat Laravel</h1>
 
 			@yield('content')
 		</body>
 	</html>
 
-Next, we'll create our `users.blade.php` view:
+Kemudian, kita buat *view* `users.blade.php`:
 
 	@extends('layout')
 
 	@section('content')
-		Users!
+		Pengguna!
 	@stop
 
-Some of this syntax probably looks quite strange to you. That's because we're using Laravel's templating system: Blade. Blade is very fast, because it is simply a handful of regular expressions that are run against your templates to compile them to pure PHP. Blade provides powerful functionality like template inheritance, as well as some syntax sugar on typical PHP control structures such as `if` and `for`. Check out the [Blade documentation](/docs/templates) for more details.
+Mungkin anda merasa beberapa sintaks terlihat ganjil. Ini karena kita menggunakan Blade --sistem templatnya Laravel. Blade sangat cepat, ini karena hanya sedikit *regular expression* sederhana yang dijalankan untuk menghimpun template menjadi PHP murni. Blade menyediakan fungsi yang sangat berguna, semisal pewarisan templat, beberapa sintak penting pada struktur pembatasan PHP seperti `if` dan `for`. Baca [dokumentasi Blade](/docs/templates) untuk lebih rinci.
 
-Now that we have our views, let's return it from our `/users` route. Instead of returning `Users!` from the route, return the view instead:
+Sekarang kita telah memiliki *view*, ayo kita kembalikan *view* tersebut dari *route* `/users`. Alih-alih mengembalikan `Pengguna!`, dari *route* mengembalikan *view*:
 
 	Route::get('users', function()
 	{
 		return View::make('users');
 	});
 
-Wonderful! Now you have setup a simple view that extends a layout. Next, let's start working on our database layer.
+Keren! Sekarang kita telah menyusun *view* sederhana yang meluaskan *layout*. Selanjutnya, mari mulai bekerja dengan lapis basis data.
 
 <a name="creating-a-migration"></a>
 ## Creating A Migration
