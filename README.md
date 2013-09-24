@@ -6,8 +6,8 @@ Ini adalah proyek alih bahasa Dokumentasi Laravel 4 ke dalam bahasa Indonesia.
 
 ### Tahap 1
 
-1. Quickstart (dlm proses)
-* Installation
+1. Quickstart
+* [Installation](/quick.md)
 * Configuration
 * Request Lifecycle
 * Routing
