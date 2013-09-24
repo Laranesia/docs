@@ -2,10 +2,10 @@
 
 - [Pemasangan](#installation)
 - [*Routing*](#routing)
-- [Creating A View](#creating-a-view)
-- [Creating A Migration](#creating-a-migration)
+- [Membuat *View*](#creating-a-view)
+- [Membuat *Migration*](#creating-a-migration)
 - [Eloquent ORM](#eloquent-orm)
-- [Displaying Data](#displaying-data)
+- [Menampilkan Data](#displaying-data)
 
 <a name="installation"></a>
 ## Pemasangan
@@ -30,11 +30,11 @@ Untuk memulai, mari ciptakan *route* perdana kita. Pada Laravel, *route* paling 
 
 Sekarang, bila anda tuju *route* `/users` pada peramban web, anda akan melihat `Pengguna!` ditampilkan sebagai balasan. Hebat! Anda telah menciptakan *route* perdana anda.
 
-*Route* juga dapat disematkan pada kelas *controller*. Sebagai contoh:
+*Route* juga dapat disematkan pada *class* *controller*. Sebagai contoh:
 
 	Route::get('users', 'UserController@getIndex');
 
-*Route* ini memberitahu *framework* bahwa permintaan ke *route* `/users` akan menjalankan metode `getIndex` dari kelas `UserController`. Untuk informasi lanjutan mengenai *controller routing*, baca [dokumentasi *controller*](/docs/controllers).
+*Route* ini memberitahu *framework* bahwa permintaan ke *route* `/users` akan menjalankan *method* `getIndex` dari *class* `UserController`. Untuk informasi lanjutan mengenai *controller routing*, baca [dokumentasi *controller*](/docs/controllers).
 
 <a name="creating-a-view"></a>
 ## Membuat *View*
@@ -57,7 +57,7 @@ Kemudian, kita buat *view* `users.blade.php`:
 		Pengguna!
 	@stop
 
-Mungkin anda merasa beberapa sintaks terlihat ganjil. Ini karena kita menggunakan Blade --sistem templatnya Laravel. Blade sangat cepat, ini karena hanya sedikit *regular expression* sederhana yang dijalankan untuk menghimpun template menjadi PHP murni. Blade menyediakan fungsi yang sangat berguna, semisal pewarisan templat, beberapa sintak penting pada struktur pembatasan PHP seperti `if` dan `for`. Baca [dokumentasi Blade](/docs/templates) untuk lebih rinci.
+Mungkin anda merasa beberapa sintaks terlihat ganjil. Ini karena kita menggunakan Blade --sistem templatnya Laravel. Blade sangat cepat, ini karena Blade hanya menjalankan sedikit *regular expression* sederhana untuk menghimpun templat menjadi PHP murni. Blade menyediakan fungsi yang sangat berguna, semisal pewarisan templat, beberapa sintak penting pada struktur pembatasan PHP seperti `if` dan `for`. Baca [dokumentasi Blade](/docs/templates) untuk lebih rinci.
 
 Sekarang kita telah memiliki *view*, ayo kita kembalikan *view* tersebut dari *route* `/users`. Alih-alih mengembalikan `Pengguna!`, dari *route* mengembalikan *view*:
 
@@ -69,19 +69,19 @@ Sekarang kita telah memiliki *view*, ayo kita kembalikan *view* tersebut dari *r
 Keren! Sekarang kita telah menyusun *view* sederhana yang meluaskan *layout*. Selanjutnya, mari mulai bekerja dengan lapis basis data.
 
 <a name="creating-a-migration"></a>
-## Creating A Migration
+## Membuat *Migration*
 
-To create a table to hold our data, we'll use the Laravel migration system. Migrations let you expressively define modifications to your database, and easily share them with the rest of your team.
+Untuk membuat tabel yang mana menampung data kita, kita akan menggunakan sistemm migrasi Laravel. Migrasi memungkinkan anda untuk menuliskan tetapan perubahan basis data, serta memudahkan memberikannya keseluruh anggota tim.
 
-First, let's configure a database connection. You may configure all of your database connections from the `app/config/database.php` file. By default, Laravel is configured to use SQLite, and an SQLite database is included in the `app/database` directory. If you wish, you may change the `driver` option to `mysql` and configure the `mysql` connection credentials within the database configuration file.
+Petama, mari atur koneksi basis data. Anda dapat mengatur seluruh koneksi basis data anda dari berkas `app/config/database.php`. Secara asali, Laravel diatur untuk bekerja menggunakan SQLite, disertakan pula sebuah basis data SQLite pada direktori `app/database`. Bila diinginkan, anda dapat mengubah pilihan `driver` ke `mysql` dan atur mandat koneksi `mysql` pada berkas pengaturan basis data.
 
-Next, to create the migration, we'll use the [Artisan CLI](/docs/artisan). From the root of your project, run the following from your terminal:
+Selanjutnya, untuk membuat migrasi, kita akan menggunakan [*Artisan CLI*](/docs/artisan). Dari *root* proyek anda, jalankan perintah berikut dari *terminal*:
 
 	php artisan migrate:make create_users_table
 
-Next, find the generated migration file in the `app/database/migrations` folder. This file contains a class with two methods: `up` and `down`. In the `up` method, you should make the desired changes to your database tables, and in the `down` method you simply reverse them.
+Kemudian, temukan berkas migrasi hasil ciptaan tadi pada map `app/database/migrations`. Berkas ini mengandung *class* dua *method*: `up` dan `down`. Anda dapat membuat perubahan tabel basis data sesuai keinginan pada *method* `up` dan pada *method* `down` untuk mengembalikannya.
 
-Let's define a migration that looks like this:
+Mari kita tentukan migrasi seperti berikut:
 
 	public function up()
 	{
@@ -99,26 +99,26 @@ Let's define a migration that looks like this:
 		Schema::drop('users');
 	}
 
-Next, we can run our migrations from our terminal using the `migrate` command. Simply execute this command from the root of your project:
+Lanjut, kita dapat menjalankan migrasi melalui *terminal* menggunakan perintah `migrate`. Eksekusi saja perintah berikut dari *root* proyek anda:
 
 	php artisan migrate
 
-If you wish to rollback a migration, you may issue the `migrate:rollback` command. Now that we have a database table, let's start pulling some data!
+Bila anda menginginkan memutar balik migrasi, anda dapat menggunakan perintah `migrate:rollback`. Nah, sekarang kita sudah memiliki tabel basis data, mari mulai menyisipkan beberapa data!
 
 <a name="eloquent-orm"></a>
 ## Eloquent ORM
 
-Laravel ships with a superb ORM: Eloquent. If you have used the Ruby on Rails framework, you will find Eloquent familiar, as it follows the ActiveRecord ORM style of database interaction.
+Laravel dikemas bersama sebuah ORM yang luar biasa: Eloquent. Jika anda pernah menggunakan *framework* Ruby on Rails, pasti anda tidak merasa asing dengan Eloquent, karena interaksi basis data Eloquent mengikuti gaya ActiveRecord ORM.
 
-First, let's define a model. An Eloquent model can be used to query an associated database table, as well as represent a given row within that table. Don't worry, it will all make sense soon! Models are typically stored in the `app/models` directory. Let's define a `User.php` model in that directory like so:
+Petama, mari tetapkan sebuah model. Sebuah model Eloquent dapat digunakan untuk *query* sebuah tabel basis data yang terkait, maupun mewakili baris yang disajikan dalam tabel tersebut. Jangan khawatir, sebentar lagi pasti faham! Model disimpan dalam map `app/models`. Mari tetapkan sebuah model `User.php` pada map tersebut, sebagai berikut:
 
 	class User extends Eloquent {}
 
-Note that we do not have to tell Eloquent which table to use. Eloquent has a variety of conventions, one of which is to use the plural form of the model name as the model's database table. Convenient!
+Perhatikan bahwa kita tidak memberitahu Eloquent tentang tabel yang digunakan. Eloquent memiliki ragam kaidah, salah satunya adalah dengan menggunakan bentuk jamak dari nama model sebagai tabel basisdatanya. Enak sekali!
 
-Using your preferred database administration tool, insert a few rows into your `users` table, and we'll use Eloquent to retrieve them and pass them to our view.
+Gunakan piranti adminstrasi basis data yang anda sukai, sisipkan beberapa baris ke dalam tabel `users`, dan kita akan menggunakan Eloquent untuk mendapatkan baris-baris tersebut kembali dan menyampaikannya ke *view*.
 
-Now let's modify our `/users` route to look like this:
+Sekarang mari ubah *route* `/users` menjadi seperti berikut:
 
 	Route::get('users', function()
 	{
@@ -127,14 +127,14 @@ Now let's modify our `/users` route to look like this:
 		return View::make('users')->with('users', $users);
 	});
 
-Let's walk through this route. First, the `all` method on the `User` model will retrieve all of the rows in the `users` table. Next, we're passing these records to the view via the `with` method. The `with` method accepts a key and a value, and is used to make a piece of data available to a view.
+Mari kita runut *route* ini. Permata, *method* `all` dalam model `User` akan mendapatkan seluruh baris dalam tabel `users`. Kemudian kita menyampaikan data ini ke *view* melalui *method* `with`. *Method* `with` menerima sebuah *key* dan sebuah *value*, dan ini digunakan untuk membuat bagian data terdapat di *view*.
 
-Awesome. Now we're ready to display the users in our view!
+Keren. Sekarang kita siap untuk menampilkan data pengguna tadi pada *view*!
 
 <a name="displaying-data"></a>
-## Displaying Data
+## Menampilkan Data
 
-Now that we have made the `users` available to our view. We can display them like so:
+Sekarang kita telah menjadikan data `users` tersedia pada *view*. Kita dapa menampilkannya seperti berikut:
 
 	@extends('layout')
 
@@ -144,6 +144,6 @@ Now that we have made the `users` available to our view. We can display them lik
 		@endforeach
 	@stop
 
-You may be wondering where to find our `echo` statements. When using Blade, you may echo data by surrounding it with double curly braces. It's a cinch. Now, you should be able to hit the `/users` route and see the names of your users displayed in the response.
+Anda mungkin bertanya-tanya, "di mana pernyataan `echo`-nya?". Bila menggunakan Blade, anda dapat meng-echo data dengan melingkupinya dengan kurung kurawal ganda. Ini gampang. Sekarang, anda seharusnya dapat melihat nama-nama pengguna ditampilkan pada *response* ketika anda menuju *route* `/users`.
 
-This is just the beginning. In this tutorial, you've seen the very basics of Laravel, but there are so many more exciting things to learn. Keep reading through the documentation and dig deeper into the powerful features available to you in [Eloquent](/docs/eloquent) and [Blade](/docs/templates). Or, maybe you're more interested in [Queues](/docs/queues) and [Unit Testing](/docs/testing). Then again, maybe you want to flex your architecture muscles with the [IoC Container](/docs/ioc). The choice is yours!
+Ini hanya awalnya saja. Dalam tutorial ini, anda telah melihat Laravel tingkat sangat dasar, tetapi masih banyak hal mengagumkan untuk dipelajari. Lanjutkan membaca dokumntasi ini sampai habis dan gali fitur-fitur berguna untuk anda yang ada dalam [Eloquent](/docs/eloquent) dan [Blade](/docs/templates). Atau, mungkin lebih tertarik pada [Queues](/docs/queues) dan [Unit Testing](/docs/testing). Mungkin juga anda ingin mengekarkan otot arsitektur anda dengan [IoC Container](/docs/ioc). Silakan pilih sesuka hati!
