@@ -1,10 +1,10 @@
 # Controllers
 
-- [Basic Controllers](#basic-controllers)
+- [Controller Dasar](#basic-controllers)
 - [Controller Filters](#controller-filters)
 - [RESTful Controllers](#restful-controllers)
 - [Resource Controllers](#resource-controllers)
-- [Menangani Metode yang Hilang](#handling-missing-methods)
+- [Menangani Metode-Metode yang Hilang](#handling-missing-methods)
 
 <a name="basic-controllers"></a>
 ## Controller Dasar
@@ -166,7 +166,7 @@ Dan, Anda juga dapat menentukan subset dari *action* untuk menangani rute:
 					array('except' => array('create', 'store', 'update', 'delete')));
 
 <a name="handling-missing-methods"></a>
-## Menangani metode-metode yang Hilang
+## Menangani Metode-Metode yang Hilang
 
 Sebuah metode *catch-all* dapat didefinisikan yang nantinya akan dipanggil ketika tidak ada metode yang cocok lain yang ditemukan pada *controller* yang diberikan. Metode ini harus dinamai `missingMethod`, dan menerima parameter bertipe array sebagai satu-satunya argumen:
 
