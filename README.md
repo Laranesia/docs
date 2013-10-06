@@ -7,10 +7,10 @@ Ini adalah proyek alih bahasa Dokumentasi Laravel 4 ke dalam bahasa Indonesia.
 ### Tahap 1
 
 1. [Quickstart](/quick.md)
-* Installation
-* [Configuration]
-* Request Lifecycle
-* Routing
+* [Installation](/installation.md)
+* [Configuration](/configuration.md)
+* [Request Lifecycle](/lifecycle.md)
+* [Routing](/routing.md)
 * [Controllers](/controllers.md)
 * Requests & Input
 * Views & Responses
