@@ -9,9 +9,9 @@
 <a name="basic-controllers"></a>
 ## Controller Dasar
 
-Daripada mendefinisikan semua logika tingkat-rute Anda dalam sebuah file `routes.php`, Anda mungkin ingin mengatur perilaku ini menggunakan class-class *Controller*. *Controller* dapat mengelompokkan logika rute terkait ke dalam sebuah Class, serta mengambil keuntungan dari fitur yang lebih canggih seperti [dependency injection] (/ docs / IOC) otomatis.
+Daripada mendefinisikan semua logika tingkat-rute Anda dalam sebuah file `routes.php`, Anda mungkin ingin mengatur perilaku ini menggunakan class-class *Controller*. *Controller* dapat mengelompokkan logika rute terkait ke dalam sebuah Class, serta mengambil keuntungan dari fitur yang lebih canggih seperti [dependency injection](/docs/IOC) otomatis.
 
-Controller biasanya disimpan dalam direktori `app / controllers`, dan direktori ini secara default terdaftar dalam opsi `classMap` pada file `composer.json` Anda.
+*Controller* biasanya disimpan dalam direktori `app/controllers`, dan direktori ini secara asli terdaftar dalam opsi `classMap` pada file `composer.json` Anda.
 
 Berikut adalah contoh sebuah class *controller* dasar
 
@@ -29,7 +29,7 @@ Berikut adalah contoh sebuah class *controller* dasar
 
 	}
 
-Semua kontroler harus meng-*extend* class `BaseController`. Class `BaseController` juga disimpan dalam direktori `app/controllers`, dan dapat digunakan sebagai tempat untuk meletakkan shared controller logic (logika yang sama pada beberapa controller). Class `BaseController` meng-*extend* class `Controller` dari framework. Sekarang, Kita dapat membuat rute ke controller ini dengan cara:
+Semua *controller* harus meng-*extend* class `BaseController`. Class `BaseController` juga disimpan dalam direktori `app/controllers`, dan dapat digunakan sebagai tempat untuk meletakkan shared controller logic (logika yang sama pada beberapa controller). Class `BaseController` meng-*extend* class `Controller` dari framework. Sekarang, Kita dapat membuat rute ke controller ini dengan cara:
 
 	Route::get('user/{id}', 'UserController@showProfile');
 
@@ -37,7 +37,7 @@ Jika Anda memilih untuk membuat controller bertingkat atau mengatur controller m
 
 	Route::get('foo', 'Namespace\FooController@method');
 
-Anda juga dapat memberi nama pada rute controller:
+Anda juga dapat memberi nama pada rute *controller*:
 
 	Route::get('foo', array('uses' => 'FooController@method', 'as' => 'name'));
 
@@ -102,7 +102,7 @@ Laravel memungkinkan Anda untuk dengan mudah mendefinisikan sebuah rute tunggal 
 
 	Route::controller('users', 'UserController');
 
-Metode `controller` menerima dua argumen. Yang pertama adalah basis URI yang ditangani oleh controller, sedangkan yang kedua adalah nama class dari *controller*. Selanjutnya, tambahkan saja metode untuk controller, diawali dengan kata kerja HTTP yang mereka tanggapi:
+Metode `controller` menerima dua argumen. Yang pertama adalah basis URI yang ditangani oleh controller, sedangkan yang kedua adalah nama class dari *controller*. Selanjutnya, tambahkan saja metode untuk *controller*, diawali dengan kata kerja HTTP yang mereka tanggapi:
 
 	class UserController extends BaseController {
 
