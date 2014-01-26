@@ -10,9 +10,9 @@
 -->
 - [Memasang Composer](#install-composer)
 - [Memasang Laravel](#install-laravel)
-- [Server Requirements](#server-requirements)
-- [Configuration](#configuration)
-- [Pretty URLs](#pretty-urls)
+- [Persyaratan Server](#server-requirements)
+- [Pengaturan](#configuration)
+- [URLs Bersih](#pretty-urls)
 
 <a name="install-composer"></a>
 <!-- ## Install Composer -->
@@ -29,7 +29,7 @@ Laravel menggunakan [Composer](http://getcomposer.org) untuk mengelola dependens
 ### Dengan Cara Composer Create-Project
 
 <!-- You may install Laravel by issuing the Composer `create-project` command in your terminal: -->
-Anda dapat memasang Laravel dengan mengeluarkan Composer dengan perintah `create-project` di dalam *terminal*:
+Anda dapat memasang Laravel dengan mengeluarkan perintah Composer `create-project` melalui *terminal*:
 
 	composer create-project laravel/laravel --prefer-dist
 
@@ -37,14 +37,14 @@ Anda dapat memasang Laravel dengan mengeluarkan Composer dengan perintah `create
 ### Dengan Cara Unduh
 
 <!-- Once Composer is installed, download the [latest version](https://github.com/laravel/laravel/archive/master.zip) of the Laravel framework and extract its contents into a directory on your server. Next, in the root of your Laravel application, run the `php composer.phar install` (or `composer install`) command to install all of the framework's dependencies. This process requires Git to be installed on the server to successfully complete the installation. -->
-Setelah Composer terpasang, unduh [versi terbaru](https://github.com/laravel/laravel/archive/master.zip) *framework* Laravel dan ekstrak isinya ke dalam map pada peladen Anda. Selanjutnya, di *root* aplikasi Laravel, jalankan perintah `php composer.phar install` (atau `composer install`) untuk memasang semua depedensi *framework*. Untuk menyelesaikan proses pemasangan ini, dibutuhkan Git terpasang pada peladen.
+Setelah Composer terpasang, unduh [versi terbaru](https://github.com/laravel/laravel/archive/master.zip) *framework* Laravel dan ekstrak isinya ke dalam map pada *server* Anda. Selanjutnya, di *root* aplikasi Laravel, jalankan perintah `php composer.phar install` (atau `composer install`) untuk memasang semua depedensi *framework*. Untuk menyelesaikan proses pemasangan ini, dibutuhkan Git terpasang pada *server*.
 
 <!-- If you want to update the Laravel framework, you may issue the `php composer.phar update` command. -->
 Jika Anda ingin memperbarui *framework* Laravel, Anda dapat menggunakan perintah `php composer.phar update`.
 
 <a name="server-requirements"></a>
 <!-- ## Server Requirements -->
-## Persyaratan Peladen
+## Persyaratan Server
 
 <!-- The Laravel framework has a few system requirements: -->
 *Framework* Laravel memiliki beberapa persyaratan sistem:
@@ -64,17 +64,17 @@ Laravel hampir tidak membutuhkan pengaturan. Anda bebas untuk memulai membangun!
 ### Izin
 
 <!-- Laravel requires one set of permissions to be configured - folders within app/storage require write access by the web server. -->
-Laravel membutuhkan sepaket izin yang perlu diatur - map dalam `app/storage` membutuhkan akses tulis oleh peladen web.
+Laravel membutuhkan sepaket izin yang perlu diatur - *folder* dalam `app/storage` membutuhkan akses tulis oleh *server* web.
 
 <a name="paths"></a>
 <!-- ### Paths -->
 ### Jalur (Paths)
 
 <!-- Several of the framework directory paths are configurable. To change the location of these directories, check out the `bootstrap/paths.php` file. -->
-Beberapa jalur map *framework* dapat diubahsuai. Untuk mengubah lokasi map ini, silakan periksa berkas `bootstrap/paths.php`.
+Beberapa jalur folder *framework* dapat disesuaikan. Untuk mengubah lokasi folder ini, silakan periksa berkas `bootstrap/paths.php`.
 
 <!-- > **Note:** Laravel is designed to protect your application code, and local storage by placing only files that are necessarily public in the public folder.  It is recommended that you either set the public folder as your site's documentRoot (also known as a web root) or to place the contents of public into your site's root directory and place all of Laravel's other files outside the web root.  -->
-> **Catatan:** Laravel dirancang untuk melindungi kode aplikasi Anda, dengan menempatkan berkas yang diakses umum hanya dalam map public (*local storage*). Anda juga disarankan mengatur map public sebagai *documentRoot* situs Anda (juga dikenal sebagai *web root*), atau dengan menempatkan isi dari public ke map *root* situs Anda dan tempatkan semua berkas Laravel yang lain di luar *web root*.
+> **Catatan:** Laravel dirancang untuk melindungi kode aplikasi Anda, dengan menempatkan berkas yang diakses umum hanya dalam folder public (*local storage*). Anda juga disarankan mengatur folder public sebagai *documentRoot* situs Anda (juga dikenal sebagai *web root*), atau dengan menempatkan isi dari public ke folder *root* situs Anda dan tempatkan semua berkas Laravel yang lain di luar *web root*.
 
 <a name="pretty-urls"></a>
 <!-- ## Pretty URLs -->
@@ -84,7 +84,7 @@ Beberapa jalur map *framework* dapat diubahsuai. Untuk mengubah lokasi map ini, 
 Laravel dikemas bersama sebuah berkas `public/.htaccess` yang digunakan untuk memungkinkan URL tanpa `index.php`. Jika Anda menggunakan Apache untuk melayani aplikasi Laravel Anda, pastikan untuk mengaktifkan modul `mod_rewrite`.
 
 <!-- If the `.htaccess` file that ships with Laravel does not work with your Apache installation, try this one: -->
-Jika `.htaccess` berkas yang dikemas bersama Laravel tidak bekerja dengan instalasi Apache Anda, coba yang ini:
+Jika berkas `.htaccess` yang dikemas bersama Laravel tidak bekerja dengan instalasi Apache Anda, coba yang ini:
 
 	Options +FollowSymLinks
 	RewriteEngine On

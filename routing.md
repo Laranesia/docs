@@ -26,13 +26,13 @@
 
 <a name="basic-routing"></a>
 <!-- ## Basic Routing -->
-## Basic Routing
+## Rute Dasar
 
 <!-- Most of the routes for your application will be defined in the `app/routes.php` file. The simplest Laravel routes consist of a URI and a Closure callback. -->
-Sebagian besar rute untuk aplikasi Anda akan didefinisikan dalam file `app / routes.php`. Rute Laravel sederhana terdiri dari URI dan callback Penutupan.
+Sebagian besar rute untuk aplikasi Anda akan didefinisikan dalam file `app/routes.php`. Rute Laravel paling sederhana terdiri dari URI dan sebuah *Closure callback*.
 
 <!-- **Basic GET Route** -->
-**Basic GET Route**
+**Rute GET Dasar**
 
 	Route::get('/', function()
 	{
@@ -40,7 +40,7 @@ Sebagian besar rute untuk aplikasi Anda akan didefinisikan dalam file `app / rou
 	});
 
 <!-- **Basic POST Route** -->
-**Basic POST Route**
+**Rute POST Dasar**
 
 	Route::post('foo/bar', function()
 	{
@@ -48,7 +48,7 @@ Sebagian besar rute untuk aplikasi Anda akan didefinisikan dalam file `app / rou
 	});
 
 <!-- **Registering A Route Responding To Any HTTP Verb** -->
-Mendaftarkan ** A Route Menanggapi Untuk Setiap HTTP Verb **
+**Mendaftarkan sebuah Route yang Menanggapi Setiap Kata Kerja HTTP**
 
 	Route::any('foo', function()
 	{
@@ -56,7 +56,7 @@ Mendaftarkan ** A Route Menanggapi Untuk Setiap HTTP Verb **
 	});
 
 <!-- **Forcing A Route To Be Served Over HTTPS** -->
-Memaksa ** A Route Akan Dilayani Selama HTTPS **
+**Memaksa sebuah Route Agar Dilayani Hanya Melalui HTTPS **
 
 	Route::get('foo', array('https', function()
 	{
@@ -64,13 +64,13 @@ Memaksa ** A Route Akan Dilayani Selama HTTPS **
 	}));
 
 <!-- Often, you will need to generate URLs to your routes, you may do so using the `URL::to` method: -->
-Sering kali, Anda akan perlu untuk menghasilkan URL untuk rute Anda, Anda dapat melakukannya dengan menggunakan `URL :: untuk` metode:
+Sering kali, Anda akan perlu untuk menghasilkan URL untuk rute Anda, Anda dapat melakukannya dengan menggunakan metode `URL::to`:
 
 	$url = URL::to('foo');
 
 <a name="route-parameters"></a>
 <!-- ## Route Parameters -->
-## Route Parameters
+## Rute dengan Parameter
 
 	Route::get('user/{id}', function($id)
 	{
@@ -78,7 +78,7 @@ Sering kali, Anda akan perlu untuk menghasilkan URL untuk rute Anda, Anda dapat 
 	});
 
 <!-- **Optional Route Parameters** -->
-**Optional Route Parameters**
+**Rute dengan Parameter Opsional**
 
 	Route::get('user/{name?}', function($name = null)
 	{
@@ -86,7 +86,7 @@ Sering kali, Anda akan perlu untuk menghasilkan URL untuk rute Anda, Anda dapat 
 	});
 
 <!-- **Optional Route Parameters With Defaults** -->
-**Optional Route Parameters With Defaults**
+**Rute dengan Parameter Opsional dengan Nilai Default**
 
 	Route::get('user/{name?}', function($name = 'John')
 	{
@@ -94,7 +94,7 @@ Sering kali, Anda akan perlu untuk menghasilkan URL untuk rute Anda, Anda dapat 
 	});
 
 <!-- **Regular Expression Route Constraints** -->
-**Regular Expression Route Constraints**
+**Rute dengan Batasan Regular Expression**
 
 	Route::get('user/{name}', function($name)
 	{
@@ -109,7 +109,7 @@ Sering kali, Anda akan perlu untuk menghasilkan URL untuk rute Anda, Anda dapat 
 	->where('id', '[0-9]+');
 
 <!-- Of course, you may pass an array of constraints when necessary: -->
-Tentu saja, Anda dapat melewatkan sebuah array dari kendala bila diperlukan:
+Tentu saja, Anda dapat memberikan sebuah array berisikan batasan-batasan bila diperlukan:
 
 	Route::get('user/{id}/{name}', function($id, $name)
 	{
@@ -119,10 +119,10 @@ Tentu saja, Anda dapat melewatkan sebuah array dari kendala bila diperlukan:
 
 <a name="route-filters"></a>
 <!-- ## Route Filters -->
-## Route Filters
+## Rute dengan Filter
 
 <!-- Route filters provide a convenient way of limiting access to a given route, which is useful for creating areas of your site which require authentication. There are several filters included in the Laravel framework, including an `auth` filter, an `auth.basic` filter, a `guest` filter, and a `csrf`filter. These are located in the `app/filters.php` file. -->
-Filter Route menyediakan Cara Yang Nyaman untuk membatasi AKSes Ke route print rute cetak Yang diberikan, Yang berguna untuk membuat wilayah SITUS Andari Yang memerlukan otentikasi. Ada beberapa filter yang termasuk Dalam, kerangka Laravel, termasuk `auth` filter, `auth.basic` filter, `` Tamu filter, Dan `CSRF` filter. INI terletak di berkas `app / filters.php`.
+Rute dengan Filter memberikan kenyamanan bagi Anda untuk membatasi akses ke rute yang diberikan, yang berguna untuk membuat wilayah-wilayah pada situs yang memerlukan otentikasi. Ada beberapa filter yang terdapat dalam framework Laravel, termasuk filter `auth`, filter `auth.basic`, filter `guest`, dan filter `CSRF`. Filter-filter tersebut terletak di berkas `app/filters.php`.
 
 <!-- **Defining A Route Filter** -->
 **Mendefinisikan Sebuah Filter Route**
@@ -136,10 +136,10 @@ Filter Route menyediakan Cara Yang Nyaman untuk membatasi AKSes Ke route print r
 	});
 
 <!-- If a response is returned from a filter, that response will be considered the response to the request and the route will not be executed, and any `after` filters on the route will also be cancelled. -->
-Jika respon yang kembali dari filter, respon yang akan dianggap sebagai respon terhadap permintaan dan rute tidak akan dieksekusi, dan setiap `setelah` filter pada rute juga akan dibatalkan.
+Jika sebuah respon dikembalikan dari suatu filter, respon tersebut akan dianggap sebagai respon terhadap permintaan dan rute tersebut tidak akan dieksekusi, dan setiap filter `after` pada rute juga akan dibatalkan.
 
 <!-- **Attaching A Filter To A Route** -->
-**Melampirkan Filter A Untuk A Route**
+**Melampirkan Filter Untuk Rute**
 
 	Route::get('user', array('before' => 'old', function()
 	{
@@ -147,7 +147,7 @@ Jika respon yang kembali dari filter, respon yang akan dianggap sebagai respon t
 	}));
 
 <!-- **Attaching Multiple Filters To A Route** -->
-**Melampirkan Beberapa Filter Untuk Sebuah Route**
+**Melampirkan Beberapa Filter untuk Sebuah Route**
 
 	Route::get('user', array('before' => 'auth|old', function()
 	{
@@ -168,7 +168,7 @@ Jika respon yang kembali dari filter, respon yang akan dianggap sebagai respon t
 	}));
 
 <!-- After filters receive a `$response` as the third argument passed to the filter: -->
-Setelah filter menerima $ response `sebagai argumen ketiga dilewatkan ke filter:
+Filter `after` menerima `$response` sebagai argumen ketiga ketika dilewatkan ke filter:
 
 	Route::filter('log', function($route, $request, $response, $value)
 	{
@@ -189,10 +189,10 @@ Anda juga dapat menentukan bahwa filter berlaku untuk seluruh rangkaian rute ber
 	Route::when('admin/*', 'admin');
 
 <!-- In the example above, the `admin` filter would be applied to all routes beginning with `admin/`. The asterisk is used as a wildcard, and will match any combination of characters. -->
-Dalam contoh di atas, `admin` filter akan diterapkan ke semua rute dimulai dengan `admin /`. Tanda ini digunakan sebagai wildcard, dan akan cocok dengan kombinasi karakter.
+Dalam contoh di atas, filter `admin` akan diterapkan ke semua rute yang dimulai dengan `admin/`. Tanda `*` digunakan sebagai *wildcard*, dan akan mencocokkan dengan kombinasi dari karakter-karakter.
 
 <!-- You may also constrain pattern filters by HTTP verbs: -->
-Anda juga dapat membatasi pola filter oleh HTTP verba:
+Anda juga dapat membatasi pola filter dengan kata kerja HTTP:
 
 	Route::when('admin/*', 'admin', array('post'));
 
@@ -200,10 +200,10 @@ Anda juga dapat membatasi pola filter oleh HTTP verba:
 **Filter Classes**
 
 <!-- For advanced filtering, you may wish to use a class instead of a Closure. Since filter classes are resolved out of the application [IoC Container](/docs/ioc), you will be able to utilize dependency injection in these filters for greater testability. -->
-Untuk penyaringan lanjutan, Anda mungkin ingin menggunakan kelas bukannya Penutupan. Sejak kelas filter diselesaikan dari aplikasi [IOC Kontainer](/ docs / IOC), Anda akan dapat memanfaatkan ketergantungan injeksi dalam filter untuk testability yang lebih besar.
+Untuk penyaringan tingkat lanjut, Anda mungkin ingin menggunakan `class` bukannya `Closure`. Dikarenakan `class-class filter` dipisahkan dari aplikasi [IOC Container](/docs/IOC), Anda akan dapat memanfaatkan `dependency injection` pada filter-filter ini untuk kemampuan *testing* yang lebih besar.
 
 <!-- **Defining A Filter Class** -->
-**Mendefinisikan Kelas A Filter**
+**Mendefinisikan sebuah Filter Class**
 
 	class FooFilter {
 
@@ -215,16 +215,16 @@ Untuk penyaringan lanjutan, Anda mungkin ingin menggunakan kelas bukannya Penutu
 	}
 
 <!-- **Registering A Class Based Filter** -->
-**Mendaftarkan Kelas A Filter Berdasarkan**
+**Mendaftarkan Filter Berbasis Class**
 
 	Route::filter('foo', 'FooFilter');
 
 <a name="named-routes"></a>
 <!-- ## Named Routes -->
-## Named Routes
+## Rute yang Diberi Nama
 
 <!-- Named routes make referring to routes when generating redirects or URLs more convenient. You may specify a name for a route like so: -->
-Dinamakan rute membuat mengacu pada rute saat membuat pengalihan atau URL lebih nyaman. Anda dapat menentukan nama untuk rute seperti:
+Rute bernama membuat lebih nyaman dalam mengacu pada rute saat membuat pengalihan atau membuat URL. Anda dapat menentukan nama untuk rute seperti berikut:
 
 	Route::get('user/profile', array('as' => 'profile', function()
 	{
@@ -232,7 +232,7 @@ Dinamakan rute membuat mengacu pada rute saat membuat pengalihan atau URL lebih 
 	}));
 
 <!-- You may also specify route names for controller actions: -->
-Anda juga dapat menentukan nama rute untuk tindakan controller:
+Anda juga dapat menentukan nama rute untuk action-action (metode) pada *controller*:
 
 	Route::get('user/profile', array('as' => 'profile', 'uses' => 'UserController@showProfile'));
 
@@ -244,16 +244,16 @@ Sekarang, Anda dapat menggunakan nama rute itu saat membuat URL atau pengalihan:
 	$redirect = Redirect::route('profile');
 
 <!-- You may access the name of a route that is running via the `currentRouteName` method: -->
-Anda dapat mengakses nama rute yang sedang berjalan melalui `currentRouteName metode`:
+Anda dapat mengakses nama rute yang sedang berjalan melalui metode `currentRouteName`:
 
 	$name = Route::currentRouteName();
 
 <a name="route-groups"></a>
 <!-- ## Route Groups -->
-## Route Groups
+## Kelompok Rute
 
 <!-- Sometimes you may need to apply filters to a group of routes. Instead of specifying the filter on each route, you may use a route group: -->
-Kadang-kadang Anda mungkin perlu untuk menerapkan filter untuk sekelompok dipilih. Alih-alih menentukan filter pada setiap rute, Anda dapat menggunakan kelompok rute:
+Kadang-kadang Anda mungkin perlu untuk menerapkan filter untuk sekelompok rute. Alih-alih menentukan filter pada setiap rute, Anda dapat menggunakan kelompok rute:
 
 	Route::group(array('before' => 'auth'), function()
 	{
@@ -270,10 +270,10 @@ Kadang-kadang Anda mungkin perlu untuk menerapkan filter untuk sekelompok dipili
 
 <a name="sub-domain-routing"></a>
 <!-- ## Sub-Domain Routing -->
-## Sub-Domain Routing
+## Rute Sub-Domain
 
 <!-- Laravel routes are also able to handle wildcard sub-domains, and pass you wildcard parameters from the domain: -->
-Rute Laravel juga mampu menangani wildcard sub​​-domain, dan melewati Anda parameter wildcard dari domain:
+Rute Laravel juga mampu menangani *wildcard* sub​​-domain, dan memberikan Anda parameter wildcard dari domain:
 
 <!-- **Registering Sub-Domain Routes** -->
 **Mendaftarkan Rute Sub-Domain**
@@ -289,13 +289,13 @@ Rute Laravel juga mampu menangani wildcard sub​​-domain, dan melewati Anda p
 	});
 <a name="route-prefixing"></a>
 <!-- ## Route Prefixing -->
-## Route Prefixing
+## Pemberian Awalan pada Rute
 
 <!-- A group of routes may be prefixed by using the `prefix` option in the attributes array of a group: -->
-Sekelompok rute dapat diawali dengan menggunakan `` awalan pilihan dalam atribut array kelompok:
+Sekelompok rute dapat diberikan awalan dengan menggunakan opsi `prefix` pada atribut array dari sebuah kelompok:
 
 <!-- **Prefixing Grouped Routes** -->
-**Awalan Rute Dikelompokkan**
+**Pemberian Awalan pada Kelompok Rute**
 
 	Route::group(array('prefix' => 'admin'), function()
 	{
@@ -309,18 +309,18 @@ Sekelompok rute dapat diawali dengan menggunakan `` awalan pilihan dalam atribut
 
 <a name="route-model-binding"></a>
 <!-- ## Route Model Binding -->
-## Route Model Binding
+## Mengikat Model pada Rute
 
 <!-- Model binding provides a convenient way to inject model instances into your routes. For example, instead of injecting a user's ID, you can inject the entire User model instance that matches the given ID. First, use the `Route::model` method to specify the model that should be used for a given parameter: -->
-Model mengikat menyediakan cara yang nyaman untuk menyuntikkan contoh model ke rute Anda. Misalnya, bukan suntik ID pengguna, Anda bisa menyuntikkan seluruh Pengguna turunan model yang cocok dengan ID yang diberikan. Pertama, gunakan `Route ::` model metode untuk menentukan model yang harus digunakan untuk parameter yang diberikan:
+Pengikatan Model (*model binding*) menyediakan cara yang nyaman untuk menyuntikkan pewujudan (*instance*) model ke rute Anda. Misalnya, daripada menyuntikkan ID pengguna, Anda bisa menyuntikkan seluruh pewujudan model `User` yang cocok dengan ID yang diberikan. Pertama, gunakan metode `Route::model` untuk menentukan model yang harus digunakan untuk parameter yang diberikan:
 
 <!-- **Binding A Parameter To A Model** -->
-**Parameter Binding A Untuk Sebuah Model**
+**Parameter Binding Untuk Sebuah Model**
 
 	Route::model('user', 'User');
 
 <!-- Next, define a route that contains a `{user}` parameter: -->
-Selanjutnya, menentukan rute yang berisi parameter `` {user}:
+Selanjutnya, menentukan rute yang berisi parameter `{user}`:
 
 	Route::get('profile/{user}', function(User $user)
 	{
@@ -328,13 +328,13 @@ Selanjutnya, menentukan rute yang berisi parameter `` {user}:
 	});
 
 <!-- Since we have bound the `{user}` parameter to the `User` model, a `User` instance will be injected into the route. So, for example, a request to `profile/1` will inject the `User` instance which has an ID of 1. -->
-Karena kita telah terikat parameter `` {user} ke model `User`, misalnya sebuah `User` akan disuntikkan ke rute. Jadi, misalnya, permintaan untuk `profil / 1` akan menyuntikkan `User` contoh yang memiliki ID dari 1.
+Karena kita telah mengikat parameter `{user}` ke model `User`, sebuah pewujudan `User` akan disuntikkan ke rute. Jadi, misalnya, permintaan untuk `profile/1` akan menyuntikkan pewujudan `User` yang memiliki ID 1.
 
 <!-- > **Note:** If a matching model instance is not found in the database, a 404 error will be thrown. -->
-> ** Catatan: ** Jika contoh model yang sesuai tidak ditemukan dalam database, error 404 akan dilempar.
+> ** Catatan: ** Jika pewujudan model yang sesuai tidak ditemukan dalam database, pesan kesalahan 404 akan diberikan.
 
 <!-- If you wish to specify your own "not found" behavior, you may pass a Closure as the third argument to the `model` method: -->
-Jika Anda ingin menentukan sendiri "tidak ditemukan" perilaku Anda mungkin lulus Penutupan sebagai argumen ketiga untuk `Model` metode:
+Jika Anda ingin menentukan sendiri perilaku "tidak ditemukan", Anda dapat memberikan sebuah `Closure` sebagai argumen ketiga untuk metode `Model`:
 
 	Route::model('user', 'User', function()
 	{
@@ -342,7 +342,7 @@ Jika Anda ingin menentukan sendiri "tidak ditemukan" perilaku Anda mungkin lulus
 	});
 
 <!-- Sometimes you may wish to use your own resolver for route parameters. Simply use the `Route::bind` method: -->
-Kadang-kadang Anda mungkin ingin menggunakan resolver sendiri untuk parameter rute. Cukup menggunakan `Rute ::` metode bind:
+Kadang-kadang Anda mungkin ingin menggunakan *resolver* sendiri untuk parameter-parameter rute. Cukup menggunakan metode `Route::bind`:
 
 	Route::bind('user', function($value, $route)
 	{
@@ -351,25 +351,25 @@ Kadang-kadang Anda mungkin ingin menggunakan resolver sendiri untuk parameter ru
 
 <a name="throwing-404-errors"></a>
 <!-- ## Throwing 404 Errors -->
-## Throwing 404 Errors
+## Mengeluarkan Pesan Kesalahan 404
 
 <!-- There are two ways to manually trigger a 404 error from a route. First, you may use the `App::abort` method: -->
-Ada dua cara untuk secara manual memicu error 404 dari rute. Pertama, Anda dapat menggunakan `App ::` metode batalkan:
+Ada dua cara manual untuk memicu pesan kesalahan 404 dari rute. Pertama, Anda dapat menggunakan metode `App::abort`:
 
 	App::abort(404);
 
 <!-- Second, you may throw an instance of `Symfony\Component\HttpKernel\Exception\NotFoundHttpException`. -->
-Kedua, Anda mungkin melemparkan sebuah instance dari `Symfony \ Komponen \ HttpKernel \ Exception \ NotFoundHttpException`.
+Kedua, Anda dapat melemparkan sebuah pewujudan (*instance*) dari `Symfony\Component\HttpKernel\Exception\NotFoundHttpException`.
 
 <!-- More information on handling 404 exceptions and using custom responses for these errors may be found in the [errors](/docs/errors#handling-404-errors) section of the documentation. -->
-Informasi lebih lanjut tentang penanganan 404 pengecualian dan menggunakan respon kustom untuk kesalahan ini dapat ditemukan di [kesalahan](/ docs / kesalahan # penanganan-404-kesalahan) bagian dokumentasi.
+Informasi lebih lanjut tentang penanganan pengecualian 404 dan menggunakan respon kustom untuk kesalahan ini dapat ditemukan pada bagian dokumentasi [kesalahan](/docs/errors#handling-404-errors).
 
 <a name="routing-to-controllers"></a>
 <!-- ## Routing To Controllers -->
-## Routing To Controllers
+## Rute ke Controller
 
 <!-- Laravel allows you to not only route to Closures, but also to controller classes, and even allows the creation of [resource controllers](/docs/controllers#resource-controllers). -->
-Laravel memungkinkan Anda untuk tidak hanya rute ke Penutup, tetapi juga untuk kelas controller, dan bahkan memungkinkan penciptaan [pengendali resource](/ docs / controllers # sumber daya pengendali).
+Laravel memungkinkan Anda untuk tidak hanya membuat rute ke Closure, tetapi juga untuk class controller, dan bahkan memungkinkan penciptaan dari [*resource controllers*](/docs/controllers#resource-controllers).
 
 <!-- See the documentation on [Controllers](/docs/controllers) for more details. -->
-Lihat dokumentasi pada [Controller](/ docs / pengendali) untuk lebih jelasnya.
+Untuk lebih jelasnya lihat dokumentasi pada [Controller](/docs/controllers).
